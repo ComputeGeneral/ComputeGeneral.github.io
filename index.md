@@ -5,9 +5,9 @@ layout: default
  Welcome to **C**ompute **G**eneral **L**ab (CGL).
 
 ----
-# CGL Research Domains
+# CGL Research Areas
 
-> A brief Record for the **Compute General Lab** Research Domains.
+> A brief Record for the CGL's recent to do list
 
 ### [Computing](./docs/arch/compute/computeIndex.html)
 - RISC6 Scalar GPU ISA Specification
