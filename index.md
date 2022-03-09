@@ -5,9 +5,9 @@ layout: default
  Welcome to **C**ompute **G**eneral **L**ab (CGL).
 
 ----
-# CGL Include Direction
+# CGL Research Domains
 
-> A brief Record for the **Compute General Lab** study plan.
+> A brief Record for the **Compute General Lab** Research Domains.
 
 ### [Computing](./docs/arch/compute/computeIndex.html)
 - RISC6 Scalar GPU ISA Specification
@@ -21,11 +21,9 @@ layout: default
 - Algorithm Sharing between Functional CModel(**CMDL**) and Architecture Model(**AMDL**)
 - HLS flow to generate Verilog Model (**VMDL**), and EDA flow for power and area estimation.
   - MatchLib integrate into CGL21080 project
-
-### Compiler
-
-- Dragon book backend study
-- compiler backend code study
+- Compiler
+  - Dragon book backend study
+  - compiler backend code study
 
 ### Compute Graphics
 
