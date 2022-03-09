@@ -2,7 +2,7 @@
 layout: default
 ---
 
- Welcome to **C**ompute **G**eneral **L**ab (CGL).
+<center>Welcome to <b><font color=red>C</font>ompute <font color=red>G</font>eneral <font color=red>L</font>ab (CGL)</b></center>
 
 ----
 # CGL Research Areas
