@@ -9,7 +9,7 @@ layout: default
 
 > A brief Record for the CGL's recent to do list
 
-### [Computing](./docs/arch/compute/computeIndex.html)
+### [General Computing](./docs/arch/compute/computeIndex.html)
 - RISC6 Scalar GPU ISA Specification
   - Memory Model Study
   - D3D12 Spec Study
@@ -25,19 +25,19 @@ layout: default
   - Dragon book backend study
   - compiler backend code study
 
-### Compute Graphics
+### [Deep Learning](./docs/arch/deepLearning/deepLearningIndex.html)
+
+- Stanford Class
+- NVDLA System study and integrate into CGL21080
+- DLSS (driver level connection?)
+
+### [Compute Graphics](./docs/arch/graphics/graphicsIndex.html)
 
 - GAMES101 Class
 - Raster Based Graphics Module Document draft.
 - Tiger Book
 - D3D12 Spec Study
 - Ray Tracing Study and module document draft 
-
-### Deep Learning
-
-- Stanford Class
-- NVDLA System study and integrate into CGL21080
-- DLSS (driver level connection?)
 
 ### Analysis TOOLs
 

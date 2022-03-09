@@ -2,9 +2,9 @@
 layout: default
 ---
 
-[back](./)
+[back](../../../index.html)
 
-## CUDA
+### CUDA Study Notes
 
 [cuda_c_programming_guide](./cuda/cuda_c_programming_guide.html)
 
