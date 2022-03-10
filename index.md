@@ -12,7 +12,7 @@ layout: default
 ### [General Computing](./docs/arch/compute/computeIndex.html)
 - RISC6 Scalar GPU ISA Specification
   - Memory Model Study
-  - D3D12 Spec Study
+  - [API Notes](./docs/arch/apiIndex.html)
 - SIMT Shader Arch/MicroArch Specification
   - Work Distributer
   - Fused Stream Processor
