@@ -5,6 +5,7 @@ layout: default
 <center>Welcome to <b><font color=red>C</font>ompute <font color=red>G</font>eneral <font color=red>L</font>ab (CGL)</b></center>
 
 ----
+
 # CGL Research Areas
 
 > A brief Record for the CGL's recent to do list
@@ -17,10 +18,12 @@ layout: default
   - Work Distributer
   - Fused Stream Processor
   - AMDL Development
-- High-level Analytical Performance Model(**PMDL**) and Engine Model(**EMDL**)
-- Algorithm Sharing between Functional CModel(**CMDL**) and Architecture Model(**AMDL**)
-- HLS flow to generate Verilog Model (**VMDL**), and EDA flow for power and area estimation.
-  - MatchLib integrate into CGL21080 project
+- GPU Modeling Hierarchy
+  - High-level Analytical Performance Model(**PMDL**) and Engine Model(**EMDL**)
+  - Highly abstracted Algorithm model/emulator (**SMDL**)
+  - Algorithm Sharing between Functional CModel(**CMDL**) and Architecture/Cycle Model(**AMDL**)
+  - HLS flow to generate Verilog Model (**VMDL**), and EDA flow for power and area estimation.
+    - MatchLib integrate into CGL21080 project
 - Compiler
   - Dragon book backend study
   - compiler backend code study
