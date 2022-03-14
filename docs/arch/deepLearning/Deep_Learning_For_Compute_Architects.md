@@ -13,30 +13,54 @@ layout: default
 ![power consumption vs prediction Error](./powerConsumption_vs_predictionError.png)
 
 # 2 Foundations of Deep Learning
-
+> review basics of neural networks form linear regression to perceptrons and up to today's state-of-the-art deep neural networks
 ## 2.1 Neural Networks
 ### 2.1.1 biological neural networks
 
 ### 2.1.2 Artificial neural networks
+two categories of neurons research:
 - models that replicate biological neurons to explain or understand their behavior (domain of biologist and cognitive scientists)
 - solve arbitrary problems using neuron-inspired models of computation.(***neuromorphic computing***)
-  **preceptron** -- one of the earliest and still most widely used model.
+
+
+**preceptron** -- one of the earliest and still most widely used model of single artificial neuron: 
   $y=phy(sum(wi*xi))$
-  *phy*: nonlinear **activation function**
-  *sum(wi,xi)*: a weighted sum of input *xi*
-  - multilayer perceptron (MLP)
-  - *layer* 
+
+  $phy$: nonlinear **activation function**
+  $sum(wi,xi)$: a weighted sum of input *xi*
+  > why nonlinear? a well-known identity: composing any number of linear transformations produces another linear transformation. 
+  >> i.e.: if $phy(x) = x$, 
+  >> $x1 = w1*x0$
+  >> $x2 = w2*x1$
+  >> then we get $x2 = w2 * (w1 * x0)$
+  >> which also means: $x2 = w' * x0$    
+
+  > it implies that without nonlinear activation function $phy$, a neural network of any depth is identical to some single-layer network.
+
+
+
+**Neural Network Principle**: the ability of a neural net to model complex behavior is not due to sophisticated neurons, but to the aggregate behavior of many simple parts
+
+**multilayer perceptron (MLP)** simplest neural network
+  - *layer* (as the input to a neural network are often referred to as the "input layer", but it is not counted toward the overall *depth*)
   - *depth*: number of layer
   - *width*: number of neurons in a given layer.
+  - *n*th layer of an MLP can be expressed as :
+  $Xn,i = phy(SumOnj(Wn,i,j * Xn-1,j))$  or 
+  vector notation: $Xn = phy(Wn * Xn-1)$
+
 
   ![visualizing MLP](./visualizing_multilayer_perceptron.png)
-  ![nthLayerExpress](./nth_layer_of_MLP_formula.png)
-  - Nonlinear **activation function**(phy)
-    - step-function
-    - sigmoid
-    - hyperbolic tangent
-    - ***rectified linear unit** (ReLU)
-      Definition of Widely used ReLU function is just the positive component of its input : $ReLU(x)=(x>0) ? x : 0;$
+
+
+
+**Activation Function**(phy) nonlinear active function includes:
+  - step-function 
+  - sigmoid
+  - hyperbolic tangent
+  - **Rectified Linear Unit (ReLU)**
+    Definition of Widely used ReLU function is just the positive component of its input :
+    $ReLU(x) = (x > 0) ? x : 0;$
 
 ### 2.1.3 Deep Neural Networks
 
