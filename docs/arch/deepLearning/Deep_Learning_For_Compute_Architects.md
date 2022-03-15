@@ -14,6 +14,7 @@ layout: default
 
 # 2 Foundations of Deep Learning
 > review basics of neural networks form linear regression to perceptrons and up to today's state-of-the-art deep neural networks
+
 ## 2.1 Neural Networks
 ### 2.1.1 biological neural networks
 
@@ -29,10 +30,10 @@ two categories of neurons research:
   $phy$: nonlinear **activation function**
   $sum(wi,xi)$: a weighted sum of input *xi*
   > why nonlinear? a well-known identity: composing any number of linear transformations produces another linear transformation. 
-  >> i.e.: if $phy(x) = x$, 
-  >> $x1 = w1*x0$
-  >> $x2 = w2*x1$
-  >> then we get $x2 = w2 * (w1 * x0)$
+  >> i.e.: if $phy(x) = x$,    
+  >> $x1 = w1*x0$    
+  >> $x2 = w2*x1$    
+  >> then we get $x2 = w2 * (w1 * x0)$    
   >> which also means: $x2 = w' * x0$    
 
   > it implies that without nonlinear activation function $phy$, a neural network of any depth is identical to some single-layer network.
@@ -45,8 +46,10 @@ two categories of neurons research:
   - *layer* (as the input to a neural network are often referred to as the "input layer", but it is not counted toward the overall *depth*)
   - *depth*: number of layer
   - *width*: number of neurons in a given layer.
-  - *n*th layer of an MLP can be expressed as :
-  $Xn,i = phy(SumOnj(Wn,i,j * Xn-1,j))$  or 
+  - *n*th layer of an MLP can be expressed as :    
+
+  $Xn,i = phy(SumOnj(Wn,i,j * Xn-1,j))$  or     
+
   vector notation: $Xn = phy(Wn * Xn-1)$
 
 
@@ -54,12 +57,14 @@ two categories of neurons research:
 
 
 
-**Activation Function**(phy) nonlinear active function includes:
+**Activation Function**(phy) 
+a few nonlinear activation functions:
   - step-function 
   - sigmoid
   - hyperbolic tangent
   - **Rectified Linear Unit (ReLU)**
-    Definition of Widely used ReLU function is just the positive component of its input :
+    Definition of Widely used ReLU function is just the positive component of its input :    
+
     $ReLU(x) = (x > 0) ? x : 0;$
 
 ### 2.1.3 Deep Neural Networks
