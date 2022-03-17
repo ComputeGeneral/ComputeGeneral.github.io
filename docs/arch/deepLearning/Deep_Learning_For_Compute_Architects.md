@@ -13,7 +13,7 @@ layout: default
 ![power consumption vs prediction Error](./powerConsumption_vs_predictionError.png)
 
 # 2 Foundations of Deep Learning
-> review basics of neural networks form linear regression to perceptrons and up to today's state-of-the-art deep neural networks
+> review basics of neural networks form linear regression to perceptrons and up to today's state-of-the-art deep neural networks    
 
 ## 2.1 Neural Networks
 ### 2.1.1 biological neural networks
