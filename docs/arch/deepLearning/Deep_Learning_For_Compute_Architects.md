@@ -97,8 +97,36 @@ a few nonlinear activation functions:
     cross-entropy tends to be more effective for classification problems.
 
 - **Optimization**: we want a way of adjusting the model weights to minimize our loss function.
-  - Stochastic Gradient Descent(SGD) *tells the direction in which to shift the estimate y'*
+  - **Stochastic Gradient Descent(SGD)**: *tells the direction in which to shift the estimate y'*
   - **Backpropagation**: *how to update the neural network to realize that shift(determiend by SGD)*
 
-  ...
+
 - **Vanishing and Exploding Gradients
+
+
+---
+
+# 3. Methods and Models
+
+## 3.1 An overview of advanced neural network methods
+
+Aim: cheaper to compute, easier to train, robust to noise.
+
+### 3.1.1 Model Architectures
+- **Convolution Neural Networks** a CNN works by sliding a large number of small trainable filters across an image.
+  - mathematically: the forward operation is described by convolving an small filter with a large input image(hence the name). The backward (training) operation involves, naturally, deconvolving the gradients using the filters in order to produce a new set of gradients for the preceding layer.
+  - An alternate interpretation of a CNN is as a large MLP where many of the weights in a layer are tied together in a specific pattern. In training, when a gradient update is applied to one of these weights, it is applied to all of them. These tied (or shared) weights correspond to a convolutional filter, and the structure with which they are connected describes the shape of the filter. In this interpretation, the computation of a CNN can be thought of as a compact representation of a larger MLP with identical mathematical properties
+
+  AlexNet(2012)
+  inception networks(2014.Google)
+  Residual networks(2015.Microsoft)
+
+- **Recurrent Neural Networks** 
+
+
+- **Other Model Architectures**
+  - bipyramidal encoder/decoder model, which stacks two neural networks back to back (autoencoder)
+  - read/write networks
+
+
+### 3.1.2 Specialized layers
