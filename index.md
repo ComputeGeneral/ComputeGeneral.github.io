@@ -19,7 +19,7 @@ layout: default
   - Fused Stream Processor
   - AMDL Development
 - GPU Modeling Hierarchy
-  - High-level Analytical Performance Model(**PMDL**) and Engine Model(**EMDL**)
+  - High-level Analytical Performance Model(**PMDL**) and Energy Model(**EMDL**)
   - Highly abstracted Algorithm model/emulator (**SMDL**)
   - Algorithm Sharing between Functional CModel(**CMDL**) and Architecture/Cycle Model(**AMDL**)
   - HLS flow to generate Verilog Model (**VMDL**), and EDA flow for power and area estimation.
