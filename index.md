@@ -8,7 +8,7 @@ layout: default
 
 # CGL Research Areas
 
-> A brief Record for the CGL's recent to do list
+> A brief Record for the CGL's recent to do list (check [CGL SCHEDULE](./doc/arch/CGL_SCHEDULE.xlsx) for more detials and progress)
 
 ### [General Computing](./docs/arch/compute/computeIndex.html)
 - CG1 Scalar GPU ISA Specification
@@ -38,9 +38,8 @@ layout: default
 
 ### [Deep Learning](./docs/arch/deepLearning/deepLearningIndex.html)
 
-- Stanford Class
-- NVDLA System study and integrate into CGL21080
-- DLSS (driver level connection?)
+- Stanford Class / Deep Learning for Compute Architects
+- NVDLA System study
 
 ### Analysis TOOLs
 
@@ -49,5 +48,6 @@ layout: default
 - CMD Trace and playback system (Verification)
 - Compute/Graphic Execution Trace
 - Probe Statistics profiling (driver)
+- R Language Study
 
 ---
