@@ -107,6 +107,9 @@ a few nonlinear activation functions:
 ---
 
 # 3. Methods and Models
+> dive into tools, workloads, and characterization. overview of modern neural network and machine learning software packages (TensorFlow, Torch, Keras, Theano and Caffe)
+
+> present a collection of commonly used, seminal workloads that have assembled in a benchmark suit - Fathom. which will be break down into two categories: dataset and model.
 
 ## 3.1 An overview of advanced neural network methods
 
@@ -130,3 +133,37 @@ Aim: cheaper to compute, easier to train, robust to noise.
 
 
 ### 3.1.2 Specialized layers
+Modern Neural Networks utilize a variety of algorithmic tricks beyond perceptrons. **Most of** these tricks are described as layers, even though they may or may not contain anything that is trainable.  
+- Pooling
+- Normalization
+
+## 3.2 Reference workloads for modern deep learning
+### 3.2.1 Criteria For a Deep Learning Workload Suite
+- Choose Meaningful Models: 
+
+
+# 4. Neural Network Accelerator Optimization: A Case Study
+> Build off of Chapter3. review the Minerva accelerator design and optimization framework. include details of " how high-level neural network software libraries can be used in conglomeration with hardware CAD and simulation flows to co-design the algorithms and hardware.
+
+
+
+# 5 A literature survey and review
+> focus on the past decade and group papers based on the level in the compute stack (algorithmic, architecture, circuits) and by optimization type (sparsity, quantization, arithmetic approximation, and fault tolerance)
+## 5.1 introduction
+|abstraction   |algorithm|Architecture|Circuitt|
+|:---          |:---     |:---        |:---    |
+|dataType      | *       |   -        | -      |
+|ModelSparsity | *       |   *        | -      |
+|ModelSupport  | -       |   *        | -      |
+|DataMovement  | -       |   *        | *      |
+|FaultTolerance| -       |   -        | *      |
+
+
+
+## 5.2 Algorithm
+### 5.2.1 Data Type
+### 5.2.2 Model Sparsity
+
+
+# 6. Conclusion
+> sheds light on areas that need attention and briefly outlines other areas of machine learning.

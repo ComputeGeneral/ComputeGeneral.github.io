@@ -18,6 +18,20 @@
 ## 3. Programming Interface
 ### 3.1
 ### 3.2 CUDA Runtime
+#### 3.2.3 Device Memory L2 Access Management
+*persisting* : CUDA kernel accesses a data region in the global memory repeatedly.
+*streaming* : the data is only accessed once.
+##### 3.2.3.1  L2 Cache Set Aside for persisting accesses
+```c++
+cudaGetDeviceProperties(&prop, device_id);                
+size_t size = min(int(prop.l2CacheSize * 0.75), prop.persistingL2CacheMaxSize);
+cudaDeviceSetLimit(cudaLimitPersistingL2CacheSize, size); /* set-aside 3/4 of L2 cache for persisting accesses or the max allowed*/ 
+```
+
+##### 3.2.3.2 L2 Policy for persisting Accesses
+- CUDA Stream Example:
+
+
 #### 3.2.6 Asynchronous Concurrent Execution
 ##### 3.2.6.5 Streams
 - Applications manage the concurrent operations described above through streams
