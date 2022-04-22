@@ -135,7 +135,7 @@ basic structure and characteristics: number of layers, size of layers and *activ
   $$\frac{\partial}{\partial{x}}f(g(h(x))) = \frac{\partial{f}}{\partial{g}} \frac{\partial{g}}{\partial{h}} \frac{\partial{h}}{\partial{x}}$$
 
   - *Cross-Entropy Loss math understanding:*
-  <font color=blue><b>TODO<b><font>
+  <font color=blue><b>TODO</b></font>
 
 <br>
 
@@ -154,16 +154,36 @@ basic structure and characteristics: number of layers, size of layers and *activ
 Aim: cheaper to compute, easier to train, robust to noise.
 
 ### 3.1.1 Model Architectures
-- **Convolution Neural Networks** a CNN works by sliding a large number of small trainable filters across an image.
+- **Convolution Neural Networks(CNN)** a CNN works by sliding a large number of small trainable filters across an image.
   - mathematically: the forward operation is described by convolving an small filter with a large input image(hence the name). The backward (training) operation involves, naturally, deconvolving the gradients using the filters in order to produce a new set of gradients for the preceding layer.
   - An alternate interpretation of a CNN is as a large MLP where many of the weights in a layer are tied together in a specific pattern. In training, when a gradient update is applied to one of these weights, it is applied to all of them. These tied (or shared) weights correspond to a convolutional filter, and the structure with which they are connected describes the shape of the filter. In this interpretation, the computation of a CNN can be thought of as a compact representation of a larger MLP with identical mathematical properties
 
   AlexNet(2012)
   inception networks(2014.Google)
-  Residual networks(2015.Microsoft)
+  Residual networks(2015.Microsoft)   
 
-- **Recurrent Neural Networks** 
+  <br>
 
+- **Recurrent Neural Networks(RNN)** 
+  suit with *input dependencies* such as speech and language. dependencies are relationships between inputs that change their meanings
+  <br>
+  RNNs are designed to deal with the sequential dependencies that often arise in time-series inputs. A RNN is a simple idea with complicated reprecussions: neurons use output as inputs in some way. 
+
+  *unidirectional recurrent nets*
+  *bidirectional networks*
+
+  - Challenges when use RNN
+    - 1. not easy to handle long-range dependencies.
+    - 2. because of the inputs and outputs loopback the normal backpropagation algorithm no longer works.
+
+    the first challenge motivated to develop a variety of recurrent neurons, the most popular one is *long-short-term memory* (LSTM)
+<br>
+    LSTM neurons have separate set of connections that propagate a signal to themselves and a set of "gates" that allow new values to be set or cleared from these connections. this act as a form of memory.
+<br>
+    LSTM are much more effective at capturing long-range dependencies.  
+<br>
+    *gated recurrent unit* a simplified version of LSTM has also proven popular.
+  <br>
 
 - **Other Model Architectures**
   - bipyramidal encoder/decoder model, which stacks two neural networks back to back (autoencoder)
@@ -178,6 +198,15 @@ Modern Neural Networks utilize a variety of algorithmic tricks beyond perceptron
 ## 3.2 Reference workloads for modern deep learning
 ### 3.2.1 Criteria For a Deep Learning Workload Suite
 - Choose Meaningful Models: 
+
+### 3.2.2 The Fathom workloads
+
+## 3.3 Computational intuition behind deep learning
+### 3.3.1 measurement and analysis in a deep learning framework.
+### 3.3.2 Operation type profiling
+### 3.3.3 Performance similarity
+### 3.3.4 Training and inference
+### 3.3.5 Parallelism and operation balance
 
 
 # 4. Neural Network Accelerator Optimization: A Case Study

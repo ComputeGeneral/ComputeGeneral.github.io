@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<center>Welcome to <b><font color=red>C</font>ompute <font color=red>G</font>eneral <font color=red>L</font>ab (CGL)</b></center>
+<center>Welcome to <b>C</b>ompute <b>G</b>eneral <b>L</b>ab (<b>CGL</b>)</center>
 
 ----
 
@@ -14,14 +14,13 @@ layout: default
 - CG1 Scalar GPU ISA Specification
   - Memory Model Study
   - [API Notes](./docs/arch/apiIndex.html)
-- SIMT Shader Arch/MicroArch Specification
+- SIMT Unified Shader Arch/MicroArch Specification
   - Work Distributer
   - Fused Stream Processor
-  - AMDL Development
-- GPU Modeling Hierarchy
+- Modeling
   - High-level Analytical Performance Model(**PMDL**) and Energy Model(**EMDL**)
   - Highly abstracted Algorithm model/emulator (**SMDL**)
-  - Algorithm Sharing between Functional CModel(**CMDL**) and Architecture/Cycle Model(**AMDL**)
+  - Low Level Algorithm Sharing between Functional CModel(**CMDL**) and Architecture/Cycle Model(**AMDL**)
   - HLS flow to generate Verilog Model (**VMDL**), and EDA flow for power and area estimation.
     - MatchLib integrate into CGL21080 project
 - Compiler
@@ -31,15 +30,18 @@ layout: default
 ### [Compute Graphics](./docs/arch/graphics/graphicsIndex.html)
 
 - GAMES101 Class
-- Raster Based Graphics Module Document draft.
 - Tiger Book
+- Raster Based Graphics Module Document draft.
+  - Algorithm sharing between CMDL and AMDL.
 - D3D12 Spec Study
-- Ray Tracing Study and module document draft 
+  - Ray Tracing Study and module document draft 
+
 
 ### [Deep Learning](./docs/arch/deepLearning/deepLearningIndex.html)
 
 - Stanford Class / Deep Learning for Compute Architects
 - NVDLA System study
+
 
 ### Analysis TOOLs
 
