@@ -4,7 +4,9 @@ layout: default
 [toc]
 
 # 1 Introduction
-> define key vocabulary, recap history and evolution of the techniques, and make the case for additional hardware support in the field.
+> define key vocabulary, recap history and evolution of the techniques, and make the case for additional hardware support in the field.  
+
+
 ## 1.1 the rises and falls of neural networks
 ![AI winter and AI history](./AI_History.png)
 
@@ -126,7 +128,9 @@ basic structure and characteristics: number of layers, size of layers and *activ
 
 - **Optimization**: we want a way of adjusting the model weights to minimize our loss function.
   - *Stochastic Gradient Descent(SGD)*: *tells the direction in which to shift the estimate y'*
-  - *Backpropagation*: *how to update the neural network to realize that shift(determiend by SGD)* the intuition behind backpropagation is that elements of a neural network should be adjust proportionally to the degree to which they contributed to generating the original output esitmate.
+  - *Backpropagation*: *how to update the neural network to realize that shift(determiend by SGD)* the intuition behind backpropagation is that elements of a neural network should be adjust proportionally to the degree to which they contributed to generating the original output estimate.
+
+  > Deep Neural Network depend on backpropagation for learning.
 
 
   gradient $\nabla{L(y,y')}$ is computing partial derivatives $\frac{\partial{L}}{\partial{x_i}}$ for all input $x$; for adjust individual weights: $\frac{\partial{L}}{\partial{w_{i,j}}}$, (every weight $j$, in every layer $i$) backpropagation is a mechanism for computing all of these partial loss components for every weight in a single pass.
@@ -186,33 +190,138 @@ Aim: cheaper to compute, easier to train, robust to noise.
   <br>
 
 - **Other Model Architectures**
-  - bipyramidal encoder/decoder model, which stacks two neural networks back to back (autoencoder)
+  - bipyramidal encoder/decoder model, which stacks two neural networks back to back.
+  e.g.: autoencoder
+
   - read/write networks
 
 
 ### 3.1.2 Specialized layers
 Modern Neural Networks utilize a variety of algorithmic tricks beyond perceptrons. **Most of** these tricks are described as layers, even though they may or may not contain anything that is trainable.  
-- Pooling
-- Normalization
 
+<br>
+Most popular non-neuron layers
+
+- Poolinig: simply aggregate the outputs of neurons from one layer. the operation itself is usually very simple: a max/min or mean of several values.
+- Normalization: Normalization layers jointly transform the outputs of many neurons to conform to some constraint. typically, this is implemented as stretching  or shifting some or all of the outputs in a layer, and it is used to keep values within a similar range
+*local response normalization*
+*batch normalization* sof
 ## 3.2 Reference workloads for modern deep learning
 ### 3.2.1 Criteria For a Deep Learning Workload Suite
 - Choose Meaningful Models: 
+- Faithfully reproduce the original work: -- Fathom
+- Leverage a Modern Deep Learning Framework.(High-Level programming model)
+  - Torch
+  - TensorFlow
+  - Theano
+  - Caffe
 
 ### 3.2.2 The Fathom workloads
+**Fathom**, a collection of eight archetypal deep learning workloads
+1. Sequence-to-Sequence translation
+2. End-to-End memory networks
+3. Deep Speech
+4. Variational Autoencoder
+5. Residual Networks
+6. VGG-19
+7. AlexNet
+8. Deep Reinforcement learning
+
+
+![Fathom WorkLoad List](./Fathom_Workloads.png)
 
 ## 3.3 Computational intuition behind deep learning
-### 3.3.1 measurement and analysis in a deep learning framework.
-### 3.3.2 Operation type profiling
-### 3.3.3 Performance similarity
-### 3.3.4 Training and inference
-### 3.3.5 Parallelism and operation balance
+### 3.3.1 Measurement and analysis in a deep learning framework.
+high-level framework, easier to develop but hard to measure performance, have some degree of built-in tracing support. for TensorFlow framework, *operation* is the smallest schedulable unit in its runtime. 
 
+Decomposing models into component operations is convenient for performance measurement. two main reasons:
+1. operations tend to have stable repeatable behavior across the life of program. (*minibatches*a update-step boundaries of a program, composed by several operations?) sampling the execution time of operations across many steps allows us to quantify stability.
+2. most deep learning models are dominated by the time spent inside their operations.
+
+### 3.3.2 Operation type profiling
+![Breakdown of execution time by operation type for each Fathom](./execution_time_by_operation_type_for_Fathom.png)
+### 3.3.3 Performance similarity
+Operation type profiling also offers a means of assessing similarity between workloads.
+pairwise similarity can be computed using *cosine similarity* and we use the inverse form $1-\frac{A.B}{|A||B|}$ as distance metrics.
+### 3.3.4 Training and inference
+Vast majority of deep learning systems use some variant of *gradient descent* and *backpropagation* which can be seen as two distinct phases:
+1. forward phase: model function compute an output from a given input. model's parameters are fixed.
+2. backward phase: (update phase): **system evaluates its output on some criteria(a loss function). then for every learnable parameter in the model, system computes the partial derivative of the loss function with respect to that parameter. This gradient is use dto adjust the model parameters to minimize the value of the loss function.**
+
+*Training a model requires evaluating both the forward and backward phases.*
+*inference requires only the prior*
+
+Most functions evaluated in the forward phase have an analogue in the backward phase with similar performance characteristics.
+
+![Normalized training and inference runtimes fo rall of the Fathom workloads](./Training_Inference_Perf.png)
+
+
+### 3.3.5 Parallelism and operation balance
+Gene Amdahl's Law: for a fixed overall problem size
+
+1) $$Speedup = T_{beforeOpt}/T_{afterOpt}$$
+2) $$T_{afterOpt} = T_{beforeOpt}*(S + \frac{1}{N}*(1-S))$$
+
+S: serial part ratio
+1-S: parallel part ratio
+
+call 2) in the 1) $$Speedup = \frac{1}{S+\frac{1}{N}*(1-S)}$$
+
+the effect of Amdahl's law at the application level: *The benefits of parallelizing matrix multiplication and convolution are limited by smaller, data-dependent operations in other parts of some models*
+
+The performance behavior of deep learning models is inextricably tied to their application-level structure. including convolution and matrix multiplication non-convolutional layers sophisticated loss functions or optimization algorithms or sparse storages.
+
+---
 
 # 4. Neural Network Accelerator Optimization: A Case Study
 > Build off of Chapter3. review the Minerva accelerator design and optimization framework. include details of " how high-level neural network software libraries can be used in conglomeration with hardware CAD and simulation flows to co-design the algorithms and hardware.
 
+- Minerva: 
+  - algorithm (software level) 
+  - architecture (architecture level)
+  - circuit
 
+- Minerva cross-layer optimization steps to baseline design
+  - fine-grain, heterogeneous data-type quantization
+  - dynamic operation pruning
+  - algorithm-aware fault mitigation for low-voltage SRAM operation.
+
+
+## 4.1 Neural networks and the simplicity wall
+two prototypical neuron types: full connected and convolutional. in both styles the "loop trip-counts" are statically defined and govern all control flow and memory access patterns, which means very few resources are needed for control and little to no speculation is required to achieve high performance.
+
+- simplicity wall: 
+Major time is spent on executing matrix-multiplication and convolutions,for DLA arch. more research required to understand how to best *fine-tune* architectures to **manage data movement and memory systems**.
+
+simplicity wall achieves once all *safe optimizations* have been applied
+- save optimization:
+one that can be applied without restraint to improve hardware efficiency without compromising the model's or more generally the workload's accuracy.
+
+to overcome *simplicity wall* -- unsafe optimization (that alter the definition of the neural network model)
+e.g. approximate computation. (algorithmic approximations ca result in substantial energy saving)
+### 4.1.1 Beyond the wall: bounding unsafe optimizations.
+difference between unsafe optimization and approximate computing. (all unsafe optimization can be used as approximate computing)
+
+how to distinct an optimization is safe or unsafe:
+APPROXIMATION EXceeding metric said to be approximate as the hardware improvement come at the expense of model accuracy; conversely, as long as the optimization's impact is below the threshold, it is still considered *unsafe*, but not *approximate* 
+
+this metrics called : **Iso-Training Noise (ITN)**, it is a computable score that quantifies how well an approximated model performs relative to the algorithmically correct one.
+
+
+## 4.2 Minerva: a three-pronged approach
+
+## 4.3 establishing a baseline: Safe Optimizations.
+### 4.3.1 Training Space exploration
+### 4.3.2 Accelerator design space
+
+
+## 4.4 Low-Power Neural networks accelerators: Unsafe Optimizations
+### 4.4.1 Data Type Quantization
+### 4.4.2 Selective Operation Pruning
+### 4.4.3 SRAM fault mitigation
+
+## 4.5 Discussion
+## 4.6 Looking forward.
 
 # 5 A literature survey and review
 > focus on the past decade and group papers based on the level in the compute stack (algorithmic, architecture, circuits) and by optimization type (sparsity, quantization, arithmetic approximation, and fault tolerance)
