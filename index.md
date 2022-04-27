@@ -17,6 +17,7 @@ layout: default
     - Dragon book backend study
 - **GPU ARCH**
   - [Compute API Notes](./docs/arch/apiIndex.html)
+  - [Compute Notes](./docs/arch/compute/computeIndex.md)
   - CG1 Compute Specification
     - CG1 Scalar GPU ISA Specification( Memory Model Study)
     - SIMT Unified Shader Arch/MicroArch Specification (Work Distributer,fused Stream Processor)
@@ -36,12 +37,12 @@ layout: default
   - Ray Tracing based module Specification
 - CG1 Modeling
   - Algorithm sharing between CMDL and AMDL.
-- Attila $\rightarrow$ CG2 
+- Attila $\rightarrow$ CG1 (D3D9 Base) 
 
 
 ### [Deep Learning](./docs/arch/deepLearning/deepLearningIndex.html)
 - [DeepLearning Framework Notes](./docs/arch/DLFrameWorkIndex.html)
-- [DeepLearning Read Notes](./docs/arch/deepLearning/deepLearningIndex.md)
+- [DeepLearning Notes](./docs/arch/deepLearning/deepLearningIndex.md)
 - NVDLA $\rightarrow$ CG2
 
 
