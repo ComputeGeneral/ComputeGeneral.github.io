@@ -11,23 +11,24 @@ layout: default
 > A brief Record for the CGL's recent to do list (check [CGL SCHEDULE](./doc/arch/CGL_SCHEDULE.xlsx) for more detials and progress)
 
 ### [General Computing](./docs/arch/compute/computeIndex.html)
-- **CPU ARCH**
-  - CG0 RISC-V GV based Superscalar CPU Modeling.
-  - Compiler
-    - Dragon book backend study
-- **GPU ARCH**
-  - [Compute API Notes](./docs/arch/apiIndex.html)
-  - [Compute Notes](./docs/arch/compute/computeIndex.md)
-  - CG1 Compute Specification
-    - CG1 Scalar GPU ISA Specification( Memory Model Study)
-    - SIMT Unified Shader Arch/MicroArch Specification (Work Distributer,fused Stream Processor)
-  - CG1 Modeling
-    - High-level Analytical Performance Model(**PMDL**) and Energy Model(**EMDL**)
-    - Highly abstracted Algorithm model/emulator (**SMDL**)
-    - Low Level Algorithm Sharing between Functional CModel(**CMDL**) and Architecture/Cycle Model(**AMDL**)
-    - HLS flow to generate Verilog Model (**VMDL**), and EDA flow for power and area estimation. (MatchLib integrate into CG1 )
-  - CG1 Compiler
-    - compiler backend code study
+#### CPU ARCH
+- CG0 RISC-V GV based Superscalar CPU Modeling.
+- CG0 Compiler
+  - Dragon book backend study
+
+#### GPU ARCH
+- [Compute API Notes](./docs/arch/apiIndex.html)
+- [Compute Notes](./docs/arch/compute/computeIndex.md)
+- CG1 Compute Specification
+  - CG1 Scalar GPU ISA Specification( Memory Model Study)
+  - SIMT Unified Shader Arch/MicroArch Specification (Work Distributer,fused Stream Processor)
+- CG1 Modeling
+  - High-level Analytical Performance Model(**PMDL**) and Energy Model(**EMDL**)
+  - Highly abstracted Algorithm model/emulator (**SMDL**)
+  - Low Level Algorithm Sharing between Functional CModel(**CMDL**) and Architecture/Cycle Model(**AMDL**)
+  - HLS flow to generate Verilog Model (**VMDL**), and EDA flow for power and area estimation. (MatchLib integrate into CG1 )
+- CG1 Compiler
+  - compiler backend code study
 
 ### [Compute Graphics](./docs/arch/graphics/graphicsIndex.html)
 - [Graphics API Notes](./docs/arch/GraphicsApiIndex.html)
