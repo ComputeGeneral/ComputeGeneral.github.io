@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<center>Welcome to <b>C</b>ompute <b>G</b>eneral/<b>G</b>raphics <b>L</b>ab (<b>CGL</b>)</center>
+<center>Welcome to <b>C</b>ompute <b>G</b>eneral <b>L</b>ab (<b>CGL</b>)</center>
 
 ----
 

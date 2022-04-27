@@ -31,6 +31,37 @@ cudaDeviceSetLimit(cudaLimitPersistingL2CacheSize, size); /* set-aside 3/4 of L2
 ##### 3.2.3.2 L2 Policy for persisting Accesses
 - CUDA Stream Example:
 
+```c++
+cudaStreamAttrValue stream_attribute;                                         // Stream level attributes data structure
+stream_attribute.accessPolicyWindow.base_ptr  = reinterpret_cast<void*>(ptr); // Global Memory data pointer
+stream_attribute.accessPolicyWindow.num_bytes = num_bytes;                    // Number of bytes for persistence access.
+                                                                              // (Must be less than cudaDeviceProp::accessPolicyMaxWindowSize)
+stream_attribute.accessPolicyWindow.hitRatio  = 0.6;                          // Hint for cache hit ratio
+stream_attribute.accessPolicyWindow.hitProp   = cudaAccessPropertyPersisting; // Type of access property on cache hit
+stream_attribute.accessPolicyWindow.missProp  = cudaAccessPropertyStreaming;  // Type of access property on cache miss.
+
+//Set the attributes to a CUDA stream of type cudaStream_t
+cudaStreamSetAttribute(stream, cudaStreamAttributeAccessPolicyWindow, &stream_attribute);  
+
+```
+When a kernel subsequently executes in CUDA stream, memory accesses within the global memory extent `[ptr..ptr+num_bytes)` are more likely to persist in the L2 cache than accesses to other global memory locations.
+
+
+
+- CUDA Graph Kernel Node Example
+```c++
+cudaKernelNodeAttrValue node_attribute;                                     // Kernel level attributes data structure
+node_attribute.accessPolicyWindow.base_ptr  = reinterpret_cast<void*>(ptr); // Global Memory data pointer
+node_attribute.accessPolicyWindow.num_bytes = num_bytes;                    // Number of bytes for persistence access.
+                                                                            // (Must be less than cudaDeviceProp::accessPolicyMaxWindowSize)
+node_attribute.accessPolicyWindow.hitRatio  = 0.6;                          // Hint for cache hit ratio
+node_attribute.accessPolicyWindow.hitProp   = cudaAccessPropertyPersisting; // Type of access property on cache hit
+node_attribute.accessPolicyWindow.missProp  = cudaAccessPropertyStreaming;  // Type of access property on cache miss.
+                                    
+//Set the attributes to a CUDA Graph Kernel node of type cudaGraphNode_t
+cudaGraphKernelNodeSetAttribute(node, cudaKernelNodeAttributeAccessPolicyWindow, &node_attribute); 
+```
+
 
 #### 3.2.6 Asynchronous Concurrent Execution
 ##### 3.2.6.5 Streams

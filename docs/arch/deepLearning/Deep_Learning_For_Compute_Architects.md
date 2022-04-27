@@ -309,8 +309,18 @@ this metrics called : **Iso-Training Noise (ITN)**, it is a computable score tha
 
 
 ## 4.2 Minerva: a three-pronged approach
+Design Steps:
+- first. require a way to train models and manipulate them to understand the impact various fix point types have on accuracy. 
+Software level:Keras;
+*If a user wishes to add an unsafe optimization, it needs to be implemented in the software model*
+- Second. need a means of quickly studying the power, performance and area trade-offs of the various design options.
+Architectural level:Aladdin;
+- Third. need a way to characterize hardware components such that they can be use in higher level models.
+Circuit Level: EDA (silicon process/low power lib)
+![five Stages of Minerva](./five_Stages_of_Minerva.png)
 
 ## 4.3 establishing a baseline: Safe Optimizations.
+
 ### 4.3.1 Training Space exploration
 ### 4.3.2 Accelerator design space
 
