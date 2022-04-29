@@ -320,10 +320,36 @@ Circuit Level: EDA (silicon process/low power lib)
 ![five Stages of Minerva](./five_Stages_of_Minerva.png)
 
 ## 4.3 establishing a baseline: Safe Optimizations.
-
+> first two stages in Minerva
 ### 4.3.1 Training Space exploration
-### 4.3.2 Accelerator design space
+to search the training space, and bring training into the hardware design loop, to be able to train for certain network properties intentionally offers more optimization opportunities. but more difficult to for human to reason about parameter settings and inter-parameter relationships.
+e.g. the number of neurons per layer,
+the datatypes to both maximize the model's accuracy and minimize its energy consumption.
 
+- Hyperparameter space exploration.
+  - number of hidden layers
+  - number of nodes per layer
+  - L1/L2 weight regularization penalties.
+  - *dropout rate*
+**Pareto frontier**: the resource distributed in the best optimized status. For a fixed people group, and resources set to be distributed, if we change the distribution rule from one to another, non of these people in the group getting worse than before, so at least one of them is getting better, this called *Pareto Frontier*
+### 4.3.2 Accelerator design space
+ for the selected and trained network from stage1 searches the accelerator microarchitectural design for high-performance designs.
+
+ Minerva uses Aladdin and ultimately yields a power-performance Pareto frontier. Minerva reduces power by around an order of magnitude
+
+ Use accelerator as a design base line(not CPU/GPU).
+ Aladdin Arch:
+ ![Aladdin architecture and pareto frontier and design opt](./aladdin_arch_design_tradeoffs.png)
+
+ *DSE* design space exploration.
+the neural network kernel is embarrassingly parallel within a single layer, the bottleneck to performance- and energy-scaling quickly becomes memory bandwidth. to supply bandwidth, SRAM partitioned heavily into smaller banks. once the minimum SRAM design granularity is reached, additional partition becomes wasteful. (with heavy area penalty against excessively parallel designs and provides little significant energy improvement, as seen in the most parallel designs.)
+
+![Aladdin microarchitecture](./aladdin_microarch.png)
+*the red wires and boxes denote additional logic needed to accommondate the minerva optimization*
+
+- additional safe optimization tricks:
+  - input batching for increased locality
+  - different architectures
 
 ## 4.4 Low-Power Neural networks accelerators: Unsafe Optimizations
 ### 4.4.1 Data Type Quantization
