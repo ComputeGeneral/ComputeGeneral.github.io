@@ -305,7 +305,7 @@ difference between unsafe optimization and approximate computing. (all unsafe op
 how to distinct an optimization is safe or unsafe:
 APPROXIMATION EXceeding metric said to be approximate as the hardware improvement come at the expense of model accuracy; conversely, as long as the optimization's impact is below the threshold, it is still considered *unsafe*, but not *approximate* 
 
-this metrics called : **Iso-Training Noise (ITN)**, it is a computable score that quantifies how well an approximated model performs relative to the algorithmically correct one.
+a distinction is made as to whether or not the optimization has a *notable* impact on the output. define a metric to quantify as "notable", this metrics called : **Iso-Training Noise (ITN)**, it is a computable score that quantifies how well an approximated model performs relative to the algorithmically correct one.
 
 
 ## 4.2 Minerva: a three-pronged approach
@@ -349,11 +349,22 @@ the neural network kernel is embarrassingly parallel within a single layer, the 
 
 - additional safe optimization tricks:
   - input batching for increased locality
-  - different architectures
+  - different architectures (dataflow: *Eyeriss: An energyefficient reconfigurable accelerator for deep convolutional neural networks*)
 
 ## 4.4 Low-Power Neural networks accelerators: Unsafe Optimizations
 ### 4.4.1 Data Type Quantization
+Stage3 of Minerva aggressively optimizes neural network bitwidths. the use of optimized data types is a key advantage that allows accelerators to achieve better computional efficiency than the general purpose programmable machines.
+
+- Fixed-Point data type design
+- Optimized Fixed-Point bitwidths
 ### 4.4.2 Selective Operation Pruning
+Stage4 of Minerva reduce the number of edges that must be processed in the dataflow graph. using empirical analysis of neuron activity, show that by eliminating operations involving small activity values , the number of weight read and MAC operations can be drastically reduced without impacting prediction accuracy.
+
+- Analysis of Neural network activations
+![analysis of neuron activations and sensitivity of prediction error to pruning](neuron_activations_and_sensitivity_of_prediction_error_to_pruning.png)
+
+- Predicating on insignificant operations.
+
 ### 4.4.3 SRAM fault mitigation
 
 ## 4.5 Discussion
