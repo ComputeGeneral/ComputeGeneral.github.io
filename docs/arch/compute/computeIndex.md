@@ -5,4 +5,4 @@ layout: default
 
 [back](../../../index.html)
 
-### [CUDA Notes](./cuda/cudaIndex.md)
+### [CUDA Notes](./gpu/cuda/cudaIndex.md)
