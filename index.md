@@ -11,12 +11,12 @@ layout: default
 > A brief Record for the CGL's recent to do list (check [CGL SCHEDULE](./doc/arch/CGL_SCHEDULE.xlsx) for more detials and progress)
 
 ### [General Computing](./docs/arch/compute/computeIndex.html)
-#### CPU ARCH
+#### CPU ARCH [CG0](https://github.com/ComputeGeneral/CG0.git)
 - CG0 RISC-V GV based Superscalar CPU Modeling.
 - CG0 Compiler
   - Dragon book backend study
 
-#### GPU ARCH
+#### GPU ARCH [CG1](https://github.com/ComputeGeneral/CG1.git)
 - [Compute API Notes](./docs/arch/apiIndex.html)
 - [Compute Notes](./docs/arch/compute/computeIndex.md)
 - CG1 Compute Specification
@@ -24,11 +24,11 @@ layout: default
   - SIMT Unified Shader Arch/MicroArch Specification (Work Distributer,fused Stream Processor)
 - CG1 Modeling
   - High-level Analytical Performance Model(**PMDL**) and Energy Model(**EMDL**)
-  - Highly abstracted Algorithm model/emulator (**SMDL**)
+  - Highly abstracted behavior model (**BMDL**)
   - Low Level Algorithm Sharing between Functional CModel(**CMDL**) and Architecture/Cycle Model(**AMDL**)
   - HLS flow to generate Verilog Model (**VMDL**), and EDA flow for power and area estimation. (MatchLib integrate into CG1 )
 - CG1 Compiler
-  - compiler backend code study
+  - Compiler backend code study
 
 ### [Compute Graphics](./docs/arch/graphics/graphicsIndex.html)
 - [Graphics API Notes](./docs/arch/GraphicsApiIndex.html)
@@ -38,7 +38,6 @@ layout: default
   - Ray Tracing based module Specification
 - CG1 Modeling
   - Algorithm sharing between CMDL and AMDL.
-- Attila $\rightarrow$ CG1 (D3D9 Base) 
 
 
 ### [Deep Learning](./docs/arch/deepLearning/deepLearningIndex.html)
